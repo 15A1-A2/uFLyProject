@@ -42,6 +42,7 @@
               <li class="<?php if (View::checkForActiveController($filename, "profile")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>profile/index"><i class="material-icons">person</i><p>Profile</p></a></li>
             <?php  } ?>
               <li class="<?php if (View::checkForActiveController($filename, "dashboard")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>dashboard/index"><i class="material-icons">dashboard</i><p>Dashboard</p></a></li>
+              <li class="<?php if (View::checkForActiveController($filename, "folder")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>folder/index"><i class="material-icons">folder</i><p>Folder</p></a></li>
               <li style="position: absolute; bottom:0;"><a href="<?php echo Config::get('URL'); ?>login/logout"><i class="material-icons">highlight_off</i>Logout</a></li>
           </ul>
 
@@ -68,7 +69,7 @@
 									<p class="hidden-lg hidden-md">Notifications</p>
 								</a>
 								<ul class="dropdown-menu" data-color="red">
-                  <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Cange account setting</a></li>
+                  <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Change account settings</a></li>
                   <li><a class="" href="<?php echo Config::get('URL') ?>node/index">My notes</a></li>
 								</ul>
 							</li>

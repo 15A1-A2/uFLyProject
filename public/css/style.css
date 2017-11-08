@@ -281,7 +281,10 @@ input.submit-button:hover{
   margin-right: 5px;
 }
 
-
+.function-bar{ 
+  max-width: 600px; 
+  margin: auto;  
+}
 /*#view-source {
   position: fixed;
   display: block;
