@@ -32,4 +32,13 @@ class AdminController extends Controller
 
         Redirect::to("admin");
     }
+
+    public function actionInvite()
+    {
+      RegistrationModel::inviteNewUser(
+          Request::post('invite_email')
+      );
+
+      Redirect::to("admin");
+    }
 }
