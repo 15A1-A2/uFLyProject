@@ -7,6 +7,15 @@
 	</section>
 </nav>
 
+<form name="form1" method="post" action="php_folder.php">
+  <p>
+    <input type="text" name="textfield" id="textfield"> 
+  Create folder_name</p>
+  <p>
+    <input type="submit" name="button" id="button" value="Submit">
+  </p>
+</form>
+
 <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
      
 </form>
