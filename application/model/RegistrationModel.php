@@ -13,6 +13,24 @@ class RegistrationModel
      *
      * @return boolean Gives back the success status of the registration
      */
+
+    public static function inviteNewUser()
+    {
+      $user_email = strip_tags(Request::post('invite_email'));
+  		$first_name = strip_tags(Request::post('first_name'));
+  		$last_name = strip_tags(Request::post('last_name'));
+
+      $validation_result = self::validateUserEmail($user_email, $first_name, $last_name);
+		  if (!$validation_result) {
+
+          var_dump($validation_result);
+          exit();
+          return false;
+		  }
+
+
+    }
+
     public static function registerNewUser()
     {
         // clean the input

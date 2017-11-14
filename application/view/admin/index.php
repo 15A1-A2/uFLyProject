@@ -1,7 +1,7 @@
 <!-- echo out the system feedback (error and success messages) -->
 <?php $this->renderFeedbackMessages(); ?>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="card">
       <div class="card-header" data-background-color="red">
         <h4 class="title">Admin Dashbaord</h4>
