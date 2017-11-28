@@ -67,7 +67,7 @@
                   <input class="form-control" type="text" name="invite_email" required />
                 </div>
               </div>
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <div class="form-group label-floating is-empty">
                   <label class="control-label">Voornaam</label>
                   <input class="form-control" type="text" name="first_name" required />
@@ -78,7 +78,7 @@
                   <label class="control-label">Achternaam</label>
                   <input class="form-control" type="text" name="last_name" required />
                 </div>
-              </div>
+              </div> -->
                 <!-- set CSRF token at the end of the form -->
                 <input type="hidden" name="csrf_token" value="<?= Csrf::makeToken(); ?>" />
                 <button class="btn btn-primary" type="submit" value="Submit">Submit</button>

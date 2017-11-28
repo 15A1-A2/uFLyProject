@@ -35,7 +35,7 @@ class AdminController extends Controller
 
     public function actionInvite()
     {
-      RegistrationModel::inviteNewUser(
+      InviteModel::inviteNewUser(
           Request::post('invite_email')
       );
 
