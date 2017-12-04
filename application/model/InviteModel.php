@@ -39,7 +39,7 @@ class InviteModel
 		}
 
     // send verification email
-		if (RegistrationModel::sendVerificationEmail($user_id, $user_email, $user_activation_hash)) {
+		if (self::sendVerificationEmail($user_id, $user_email, $user_activation_hash)) {
 			Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED'));
 			return true;
 		}
@@ -167,7 +167,7 @@ class InviteModel
 	 */
 	public static function sendVerificationEmail($user_id, $user_email, $user_activation_hash)
 	{
-		$body = Config::get('EMAIL_VERIFICATION_CONTENT') . Config::get('URL') . Config::get('EMAIL_VERIFICATION_URL')
+		$body = Config::get('EMAIL_VERIFICATION_CONTENT') . Config::get('URL') . Config::get('INVITE_VERIFICATION_URL')
 		        . '/' . urlencode($user_id) . '/' . urlencode($user_activation_hash);
 
 		$mail = new Mail;
