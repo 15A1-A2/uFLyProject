@@ -25,33 +25,22 @@
 
     </div>
 
-        <?php 
-            $curdir = getcwd();
+    <?php 
+        $curdir = getcwd();
 
-            if (mkdir($curdir . "/new folder2" , 0777)) {
-                echo "folder created";
-            } else {
-                echo "failed";
-            }
-        ?>
-
-        <form method="post" name="folder"  action="php_folder.php">
-          <p>
-            <input type="text" name="folder" id="folder"> 
-            Create folder_name</p>
-          <p>
-            <input type="submit" name="button" id="button" value="Submit">
-          </p>
-        </form>
-    <?php
-
-        // $curdir = getcwd();
-
-        // if(mkdir ($curdir ."/organisation" , 0777)) {
-        //     echo "Folder succesfully created";
-        // } else {
-        //     echo "Failed to create folder";
-        // }
+        if (mkdir($curdir . "/new folder2" , 0777)) {
+            echo "folder created";
+        } else {
+            echo "failed";
+        }
     ?>
 
+    <form method="post" name="folder"  action="php_folder.php">
+      <p>
+        <input type="text" name="folder" id="folder"> 
+        Create folder_name</p>
+      <p>
+        <input type="submit" name="mkdir" id="button" value="Submit">
+      </p>
+    </form>
 </div>
