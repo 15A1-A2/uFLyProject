@@ -66,7 +66,7 @@
   							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="material-icons">arrow_drop_down</i>
   							</a>
-                <ul>
+                <ul class="dropdown-menu" data-background-color="red">
                   <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Change account settings</a></li>
                   <?php if (Session::get("user_account_type") == 7) { ?>
                   <li><a class="" href="<?php echo Config::get('URL') ?>admin/index">Admin</a></li>
