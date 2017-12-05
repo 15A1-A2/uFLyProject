@@ -288,6 +288,21 @@ class UserModel
         return $query->fetch()->user_id;
     }
 
+    public static function getUserIdByEmail($user_email)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "SELECT user_id FROM users WHERE user_email = :user_email AND user_provider_type = :provider_type LIMIT 1";
+        $query = $database->prepare($sql);
+
+        // DEFAULT is the marker for "normal" accounts (that have a password etc.)
+        // There are other types of accounts that don't have passwords etc. (FACEBOOK)
+        $query->execute(array(':user_email' => $user_email, ':provider_type' => 'DEFAULT'));
+
+        // return one row (we only have one result or nothing)
+        return $query->fetch()->user_id;
+    }
+
     /**
      * Gets the user's data
      *
