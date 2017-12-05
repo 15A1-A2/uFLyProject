@@ -63,13 +63,13 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="material-icons">notifications</i>
-									<span class="notification">5</span>
-									<p class="hidden-lg hidden-md">Notifications</p>
+                  <i class="material-icons">arrow_drop_down</i>
 								</a>
-								<ul class="dropdown-menu" data-color="red">
-                  <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Cange account setting</a></li>
-                  <li><a class="" href="<?php echo Config::get('URL') ?>node/index">My notes</a></li>
+								<ul class="dropdown-menu" data-background-color="red">
+                  <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Change account settings</a></li>
+                  <?php if (Session::get("user_account_type") == 7) { ?>
+                  <li><a class="" href="<?php echo Config::get('URL') ?>admin/index">Admin</a></li>
+                  <?php  } ?>
 								</ul>
 							</li>
 							<li>
