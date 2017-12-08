@@ -16,6 +16,10 @@ body {
     height: 40px;
 }
 
+.overview-table{
+  margin-bottom: 10px !important;
+}
+
 /* feedback boxes */
 .feedback {
     padding: 30px;
@@ -282,14 +286,25 @@ input.submit-button:hover{
 }
 
 
-/*#view-source {
-  position: fixed;
-  display: block;
-  right: 0;
-  bottom: 0;
-  margin-right: 40px;
-  margin-bottom: 40px;
-  z-index: 900;
-}*/
+.dataTables_paginate a:active{
+  background-color: red;
+}
 
-/* Dashboard */
+.activated{
+
+}
+
+.dataTables_filter input{
+  border: 0.05rem solid
+}
+
+.dataTables_paginate .paging_simple_numbers > .current .paginate_button {
+    color: white !important;
+    border: 1px solid #111;
+    background-color: #585858;
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%), color-stop(0% ));*/
+    background: -webkit-linear-gradient(60deg, #ef5350, #e53935) !important;
+    background: -moz-linear-gradient(60deg, #ef5350, #e53935) !important;
+    background: -o-linear-gradient(60deg, #ef5350, #e53935) !important;
+    background: linear-gradient(60deg, #ef5350, #e53935) !important;
+}
