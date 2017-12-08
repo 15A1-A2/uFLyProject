@@ -93,19 +93,20 @@ body {
     border-color: #252525;
     background-color: #252525;
 }
-.login-box .remember-me-label {
+.login .remember-me-label {
     display: block;
     margin-bottom: 10px;
 }
-.login-box .link-forgot-my-password {
+.login .link-forgot-my-password {
     display: block;
     text-align: right;
+    margin-right: 5px;
 }
-.login-box .link-forgot-my-password a {
-    color: #777;
+.login .link-forgot-my-password a {
+    color:;
     text-decoration: none;
 }
-.login-box .link-forgot-my-password a:hover {
+.login .link-forgot-my-password a:hover {
     text-decoration: underline;
 }
 .login-box ::-webkit-input-placeholder { color: #777; opacity: 0.5; }
@@ -307,4 +308,20 @@ input.submit-button:hover{
     background: -moz-linear-gradient(60deg, #ef5350, #e53935) !important;
     background: -o-linear-gradient(60deg, #ef5350, #e53935) !important;
     background: linear-gradient(60deg, #ef5350, #e53935) !important;
+}
+
+.outter > div:nth-child(-n+2) {
+  float:left;
+   width:48%;
+   margin-right: 24px;
+}
+
+.outter > div:nth-child(n+2) {
+  float:left;
+   width:48%;
+   margin-right: 0;
+}
+
+#captcha{
+  margin-bottom: 20px;
 }
