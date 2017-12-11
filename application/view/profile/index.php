@@ -29,9 +29,17 @@
                           </td>
                           <td><?= $user->user_name; ?></td>
                           <td><?= $user->user_email; ?></td>
-                          <td><?= ($user->user_active == 0 ? 'Nee' : 'Yes'); ?></td>
                           <td>
-                              <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profiel</a>
+                          <?php
+                          if ($user->user_active == 0 ) {
+                              echo '<span title="This user is not activated" class="label label-default">No</span>';
+                          }else {
+                              echo '<span title="This user is activated" class="label label-success">Yes</span>';
+                          }
+                          ?>
+                          </td>
+                          <td>
+                            <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profiel</a>
                           </td>
                       </tr>
                   <?php } ?>

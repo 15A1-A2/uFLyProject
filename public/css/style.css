@@ -325,3 +325,6 @@ input.submit-button:hover{
 #captcha{
   margin-bottom: 20px;
 }
+.label-default{
+  background-color: #f44336 !important;
+}
