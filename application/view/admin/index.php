@@ -1,30 +1,30 @@
 <!-- echo out the system feedback (error and success messages) -->
 <?php $this->renderFeedbackMessages(); ?>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
     <div class="card">
       <div class="card-header" data-background-color="red">
         <h4 class="title">Admin Dashbaord</h4>
-        <p class="category">Hier kunt u alle gebruikers beheren.</p>
+        <p class="category">Hier kunt u alle gebruikers beheren</p>
       </div>
 
       <div class="card-content table-responsive">
-        <table class="overview-table table">
+        <table class="overview-table table display" cellspacing="0" width="100%">
             <thead class="text-primary">
             <tr>
                 <td>Id</td>
                 <td>Avatar</td>
-                <td>Username</td>
-                <td>User's email</td>
-                <td>Activated ?</td>
-                <td>Link to user's profile</td>
-                <td>suspension Time in days</td>
+                <td>Gebruikersnaam</td>
+                <td>Email</td>
+                <td>Account actief</td>
+                <td>Gebruikers profiel</td>
+                <td>Schorsings tijd in dagen</td>
                 <td>Soft delete</td>
-                <td>Submit</td>
+                <td>Verzend</td>
             </tr>
             </thead>
             <?php foreach ($this->users as $user) { ?>
-                <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'active'); ?>">
+                <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'activated'); ?>">
                     <td><?= $user->user_id; ?></td>
                     <td class="avatar">
                         <?php if (isset($user->user_avatar_link)) { ?>
@@ -33,16 +33,16 @@
                     </td>
                     <td><?= $user->user_name; ?></td>
                     <td><?= $user->user_email; ?></td>
-                    <td><?= ($user->user_active == 0 ? 'No' : 'Yes'); ?></td>
+                    <td><?= ($user->user_active == 0 ? 'Nee' : 'Ja'); ?></td>
                     <td>
-                        <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profile</a>
+                        <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profiel</a>
                     </td>
                     <form action="<?= config::get("URL"); ?>admin/actionAccountSettings" method="post">
                         <td><input type="number" name="suspension" /></td>
                         <td><input type="checkbox" name="softDelete" <?php if ($user->user_deleted) { ?> checked <?php } ?> /></td>
                         <td>
                             <input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
-                            <input type="submit" />
+                            <input class="btn btn-primary" type="submit" />
                         </td>
                     </form>
                 </tr>
@@ -51,11 +51,11 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="card">
       <div class="card-header" data-background-color="red">
-        <h4 class="title">Edit Profile</h4>
-        <p class="category">Make it your own</p>
+        <h4 class="title">Nodig nieuwe gebruiker uit</h4>
+        <p class="category">Connecting people</p>
       </div>
       <div class="card-content">
         <div class="row">
