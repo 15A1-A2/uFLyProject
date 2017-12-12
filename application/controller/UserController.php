@@ -106,29 +106,29 @@ class UserController extends Controller
     /**
      * Show the change-account-type page
      */
-    public function changeUserRole()
-    {
-        $this->View->render('user/changeUserRole');
-    }
+   public function changeUserRole()
+       {
+           $this->View->render('user/settings');
+       }
 
-    /**
-     * Perform the account-type changing
-     * POST-request
-     */
-    public function changeUserRole_action()
-    {
-        if (Request::post('user_account_upgrade')) {
-            // "2" is quick & dirty account type 2, something like "premium user" maybe. you got the idea :)
-            UserRoleModel::changeUserRole(2);
-        }
+       /**
+        * Perform the account-type changing
+        * POST-request
+        */
+       public function changeUserRole_action()
+       {
+           if (Request::post('user_account_upgrade')) {
+               // "2" is quick & dirty account type 2, something like "premium user" maybe. you got the idea :)
+               UserRoleModel::changeUserRole(2);
+           }
 
-        if (Request::post('user_account_downgrade')) {
-            // "1" is quick & dirty account type 1, something like "basic user" maybe.
-            UserRoleModel::changeUserRole(1);
-        }
+           if (Request::post('user_account_downgrade')) {
+               // "1" is quick & dirty account type 1, something like "basic user" maybe.
+               UserRoleModel::changeUserRole(1);
+           }
 
-        Redirect::to('user/changeUserRole');
-    }
+           Redirect::to('user/settings');
+       }
 
     /**
      * Password Change Page
