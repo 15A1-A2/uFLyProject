@@ -1,7 +1,7 @@
 <!-- echo out the system feedback (error and success messages) -->
 <?php $this->renderFeedbackMessages(); ?>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <div class="card">
       <div class="card-header" data-background-color="red">
         <h4 class="title">Admin Dashbaord</h4>
@@ -12,7 +12,7 @@
         <table class="overview-table table display" cellspacing="0" width="100%">
             <thead class="text-primary">
             <tr>
-                <td>Id</td>
+                <!-- <td>Id</td> -->
                 <td>Avatar</td>
                 <td>Gebruikersnaam</td>
                 <td>Email</td>
@@ -28,7 +28,7 @@
 
             <?php foreach ($this->users as $user) { ?>
                 <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'activated'); ?>">
-                    <td><?= $user->user_id; ?></td>
+                    <!-- <td><?= $user->user_id; ?></td> -->
                     <td class="avatar">
                         <?php if (isset($user->user_avatar_link)) { ?>
                             <img src="<?= $user->user_avatar_link; ?>"/>
@@ -82,7 +82,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="card">
       <div class="card-header" data-background-color="red">
         <h4 class="title">Nodig nieuwe gebruiker uit</h4>
