@@ -51,23 +51,22 @@
                         <td><input type="number" name="suspension" /></td>
                         <td><input type="checkbox" name="softDelete" <?php if ($user->user_deleted) { ?> checked <?php } ?> /></td>
                         <td>
-                          <div class="style-box">
-                            <select name="account_type">
-                              <?php if ($user->user_account_type == 7) { ?>
-                                <option value="7" >Admin</option>
-                                <option value="2" >Moderator</option>
-                                <option value="1" >Standaard</option>
-                              <?php } elseif ($user->user_account_type == 2) { ?>
-                                <option value="2" >Moderator</option>
-                                <option value="7" >Admin</option>
-                                <option value="1" >Standaard</option>
-                              <?php } else { ?>
-                	               <option value="1" >Standaard</option>
-                                 <option value="7" >Admin</option>
-                                 <option value="2" >Moderator</option>
-                              <?php } ?>
-                            </select>
-                          </div>
+                          <select name="account_type">
+                            <?php if ($user->user_account_type == 7) { ?>
+                              <!-- <option data-display="select">Nothing</option> -->
+                              <option value="7" >Admin</option>
+                              <option value="2" >Moderator</option>
+                              <option value="1" >Standaard</option>
+                            <?php } elseif ($user->user_account_type == 2) { ?>
+                              <option value="2" >Moderator</option>
+                              <option value="7" >Admin</option>
+                              <option value="1" >Standaard</option>
+                            <?php } else { ?>
+              	               <option value="1" >Standaard</option>
+                               <option value="7" >Admin</option>
+                               <option value="2" >Moderator</option>
+                            <?php } ?>
+                          </select>
                         <td>
                             <input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
                             <input class="btn btn-primary" type="submit" />

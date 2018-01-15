@@ -26,6 +26,8 @@
 
     <link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/jquery.dataTables.min.css?_=<?=md5($date)?>" />
 
+    <link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/nice-select.css?_=<?=md5($date)?>" />
+
 
 </head>
 <body class="<?php echo View::getBodyClass($filename); ?>">
