@@ -12,9 +12,9 @@
       </div>
       <div class="col-md-12">
         <h4>Here are the files being stored</h4>
-          <form action="FolderModel.php" method="post" enctype="multipart/form-data">
+          <form action="<?= config::get("URL"); ?>folder/actionFileUpload" method="post" enctype="multipart/form-data">
             <input type="file" name="uploadFile" id="uploadFile">
-            <input type="submit" value="Upload File" name="submit">
+            <input type="submit" name="submit" value="Upload File" >
           </form>      
       </div>
     </div>

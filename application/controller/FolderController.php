@@ -22,9 +22,9 @@ class FolderController extends Controller
         $this->View->render('folder/index');
     }
 
-    public function uploadFile()
+    public function actionFileUpload()
     {
-        Redirect::to('folder');
+        FolderModel::fileUpload();
     }
     
 }
