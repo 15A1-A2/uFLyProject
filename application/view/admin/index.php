@@ -11,8 +11,7 @@
       <div class="card-content table-responsive">
         <table class="overview-table table display" cellspacing="0" width="100%">
             <thead class="text-primary">
-            <tr>
-                <!-- <td>Id</td> -->
+              <tr>
                 <td>Avatar</td>
                 <td>Gebruikersnaam</td>
                 <td>Email</td>
@@ -22,7 +21,7 @@
                 <td>Soft delete</td>
                 <td>Account type</td>
                 <td>Verzend</td>
-            </tr>
+              </tr>
             </thead>
 
             <?php foreach ($this->users as $user) { ?>
@@ -53,7 +52,6 @@
                         <td>
                           <select name="account_type">
                             <?php if ($user->user_account_type == 7) { ?>
-                              <!-- <option data-display="select">Nothing</option> -->
                               <option value="7" >Admin</option>
                               <option value="2" >Moderator</option>
                               <option value="1" >Standaard</option>

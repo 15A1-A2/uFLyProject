@@ -24,6 +24,14 @@ class AdminController extends Controller
         );
     }
 
+    public function organisation()
+    {
+
+          $this->View->render('admin/organisation', array(
+              'domains' => OrganisationModel::getAllDomainNames())
+          );
+    }
+
     public function actionAccountSettings()
     {
         AdminModel::setAccountSuspensionAndDeletionStatus(
@@ -37,7 +45,7 @@ class AdminController extends Controller
             Request::post('user_id')
         );
 
-        Redirect::to("admin"); 
+        Redirect::to("admin");
     }
 
     public function actionInvite()
@@ -47,5 +55,15 @@ class AdminController extends Controller
       );
 
       Redirect::to("admin");
+    }
+
+    public function domainNameAction()
+    {
+      OrganisationModel::addDomainName(
+          Request::post('domain_name')
+      );
+
+      Redirect::to("admin/organisation");
+
     }
 }

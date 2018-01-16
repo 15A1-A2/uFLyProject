@@ -24,6 +24,8 @@ class UserModel
         $query->execute();
 
         return $query->fetchAll();
+
+
         //
         // $all_users_profiles = array();
         //

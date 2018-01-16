@@ -28,7 +28,7 @@ class InviteModel
     if (!self::writeNewUserToDatabase($user_email, time(), $user_activation_hash)) {
       Session::add('feedback_negative', Text::get('FEEDBACK_ACCOUNT_CREATION_FAILED'));
       return false; // no reason not to return false here
-  }
+    }
 
     // get user_id of the user that has been created, to keep things clean we DON'T use lastInsertId() here
 		$user_id = UserModel::getUserIdByEmail($user_email);

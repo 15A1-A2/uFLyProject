@@ -73,6 +73,7 @@
 								<ul class="dropdown-menu" data-background-color="red">
                   <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Verander account instellingen</a></li>
                   <?php if (Session::get("user_account_type") == 7) { ?>
+                  <li><a class="" href="<?php echo Config::get('URL') ?>admin/organisation">Voeg organisatie domein toe</a></li>
                   <li><a class="" href="<?php echo Config::get('URL') ?>admin/index">Admin</a></li>
                   <?php  } ?>
 								</ul>
@@ -81,16 +82,6 @@
 								<a href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>"><i class="material-icons">person</i></a>
 							</li>
 						</ul>
-
-						<!-- <form class="navbar-form navbar-right" role="search">
-							<div class="form-group  is-empty">
-								<input type="text" class="form-control" placeholder="Search">
-								<span class="material-input"></span>
-							</div>
-							<button type="submit" class="btn btn-white btn-round btn-just-icon">
-								<i class="material-icons">search</i><div class="ripple-container"></div>
-							</button>
-						</form> -->
 					</div>
 				</div>
 			</nav>
