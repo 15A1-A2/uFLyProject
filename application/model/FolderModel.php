@@ -2,9 +2,12 @@
 
     class FolderModel
     {
+
         public static function fileUpload()
         {
-            $target_dir = "view/folder/uploads/";
+            $allowedFileTypes = ['doc','docx','pdf','txt'];
+
+            $target_dir = "../uploads/";
             $target_file = $target_dir . basename($_FILES["uploadFile"]["name"]);
             $uploadOk = 1;
             $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -26,11 +29,10 @@
                 echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
-
+            echo($fileType);
             // Allow certain file formats
-            if ($fileType != "doc" && $fileType != "docx" && $fileType != "pdf"
-            && $fileType != "txt" ) {
-                echo "Sorry, only doc, docx, pdf & txt files are allowed.";
+            if (!in_array($fileType, $allowedFileTypes)) {
+                echo "Sorry, only the following file extensions are allowed: " . implode(";", $allowedFileTypes);
                 $uploadOk = 0;
             }
 
