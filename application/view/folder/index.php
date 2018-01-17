@@ -19,4 +19,7 @@
       </div>
     </div>
   </div>
+    <?php 
+      // header("Refresh:3; url=http://localhost:8888/uFlyProject/folder/index");
+    ?>
 </div>
