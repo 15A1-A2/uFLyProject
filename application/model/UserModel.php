@@ -23,26 +23,35 @@ class UserModel
         $query = $database->prepare($sql);
         $query->execute();
 
-        $all_users_profiles = array();
+        return $query->fetchAll();
+        //
+        // $all_users_profiles = array();
+        //
+        // foreach ($query->fetchAll() as $user) {
+        //
+        //     // all elements of array passed to Filter::XSSFilter for XSS sanitation, have a look into
+        //     // application/core/Filter.php for more info on how to use. Removes (possibly bad) JavaScript etc from
+        //     // the user's values
+        //     array_walk_recursive($user, 'Filter::XSSFilter');
+        //
+        //     $all_users_profiles[$user->user_id] = new stdClass();
+        //     $all_users_profiles[$user->user_id]->user_id = $user->user_id;
+        //     $all_users_profiles[$user->user_id]->user_name = $user->user_name;
+        //     $all_users_profiles[$user->user_id]->user_email = $user->user_email;
+        //     $all_users_profiles[$user->user_id]->user_account_type = $user->user_account_type;
+        //     $all_users_profiles[$user->user_id]->user_active = $user->user_active;
+        //     $all_users_profiles[$user->user_id]->user_deleted = $user->user_deleted;
+        //     $all_users_profiles[$user->user_id]->user_avatar_link = (Config::get('USE_GRAVATAR') ? AvatarModel::getGravatarLinkByEmail($user->user_email) : AvatarModel::getPublicAvatarFilePathOfUser($user->user_has_avatar, $user->user_id));
+        // }
+        //
+        // return $all_users_profiles;
+    }
 
-        foreach ($query->fetchAll() as $user) {
-
-            // all elements of array passed to Filter::XSSFilter for XSS sanitation, have a look into
-            // application/core/Filter.php for more info on how to use. Removes (possibly bad) JavaScript etc from
-            // the user's values
-            array_walk_recursive($user, 'Filter::XSSFilter');
-
-            $all_users_profiles[$user->user_id] = new stdClass();
-            $all_users_profiles[$user->user_id]->user_id = $user->user_id;
-            $all_users_profiles[$user->user_id]->user_name = $user->user_name;
-            $all_users_profiles[$user->user_id]->user_email = $user->user_email;
-            $all_users_profiles[$user->user_id]->user_account_type = $user->user_account_type;
-            $all_users_profiles[$user->user_id]->user_active = $user->user_active;
-            $all_users_profiles[$user->user_id]->user_deleted = $user->user_deleted;
-            $all_users_profiles[$user->user_id]->user_avatar_link = (Config::get('USE_GRAVATAR') ? AvatarModel::getGravatarLinkByEmail($user->user_email) : AvatarModel::getPublicAvatarFilePathOfUser($user->user_has_avatar, $user->user_id));
-        }
-
-        return $all_users_profiles;
+    public static function getAvatarLink($user)
+    {
+      return Config::get('USE_GRAVATAR') ?
+        AvatarModel::getGravatarLinkByEmail($user->user_email) :
+        AvatarModel::getPublicAvatarFilePathOfUser($user->user_has_avatar, $user->user_id);
     }
 
     /**

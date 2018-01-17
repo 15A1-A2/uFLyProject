@@ -23,8 +23,8 @@
                       <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'activated'); ?>">
                           <td><?= $user->user_id; ?></td>
                           <td class="avatar">
-                              <?php if (isset($user->user_avatar_link)) { ?>
-                                  <img src="<?= $user->user_avatar_link; ?>" />
+                              <?php if (true) { ?>
+                                  <img src="<?= UserModel::getAvatarLink($user); ?>" />
                               <?php } ?>
                           </td>
                           <td><?= $user->user_name; ?></td>

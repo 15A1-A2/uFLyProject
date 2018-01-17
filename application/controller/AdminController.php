@@ -37,8 +37,7 @@ class AdminController extends Controller
             Request::post('user_id')
         );
 
-        Redirect::to("admin");
-        var_dump($_POST);
+        Redirect::to("admin"); 
     }
 
     public function actionInvite()

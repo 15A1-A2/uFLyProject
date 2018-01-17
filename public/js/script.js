@@ -4,8 +4,11 @@ $(document).ready(function(){
     "language": {
       // languagev .json file
       "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Dutch.json"
-          }
+
+      }
   });
+
+  $('select').niceSelect();
 
   function DayTimeFuc() {
     var date = new Date();
@@ -28,9 +31,8 @@ $(document).ready(function(){
       message = "Goedenacht";
     }
 
-  $(".greeting" ).append(message);
+    $(".greeting" ).append(message);
 
-    // var timeOut = setTimeout(DayTimeFuc, 1000);
 
   }
 

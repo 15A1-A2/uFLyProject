@@ -20,7 +20,6 @@
                 <td>Gebruikers profiel</td>
                 <td>Schorsings tijd in dagen</td>
                 <td>Soft delete</td>
-                <td>Account rechten</td>
                 <td>Account type</td>
                 <td>Verzend</td>
             </tr>
@@ -30,13 +29,12 @@
                 <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'activated'); ?>">
                     <!-- <td><?= $user->user_id; ?></td> -->
                     <td class="avatar">
-                        <?php if (isset($user->user_avatar_link)) { ?>
-                            <img src="<?= $user->user_avatar_link; ?>"/>
+                        <?php if (true) { ?>
+                            <img src="<?= UserModel::getAvatarLink($user); ?>"/>
                         <?php } ?>
                     </td>
                     <td><?= $user->user_name; ?></td>
                     <td><?= $user->user_email; ?></td>
-                    <!-- <td><?= ($user->user_active == 0 ? 'Nee' : 'Ja'); ?></td> -->
                     <td>
                       <?php
                       if ($user->user_active == 0 ) {
@@ -49,28 +47,26 @@
                     <td>
                         <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profiel</a>
                     </td>
-                    <!-- <form action="<?php echo Config::get('URL'); ?>user/changeUserRole_action" method="post">
-                      <td><select>
-                        <option  name="user_account_to_admin">Admin</option>
-          	            <option  name="user_account_to_moderator" >Moderator</option>
-          	            <option  name="user_account_to_basic" >Standaard</option>
-                        <input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
-                        <input class="btn btn-primary" type="submit" />
-                      </select><td>
-              	    </form> -->
                     <form action="<?= config::get("URL"); ?>admin/actionAccountSettings" method="post">
                         <td><input type="number" name="suspension" /></td>
                         <td><input type="checkbox" name="softDelete" <?php if ($user->user_deleted) { ?> checked <?php } ?> /></td>
-                        <td><input min="1" max="7" type="number" name="account_type" value="<?= $user->user_account_type ?>" /></td>
-                        <td> <?php
-                          if ($user->user_account_type == 7) {
-                              echo '<span title="This user is an admin" class="label label-danger">Admin</span>';
-                          } elseif ($user->user_account_type == 2) {
-                              echo '<span title="This user is an pro member" class="label label-info">Moderator</span>';
-                          } else  {
-                              echo '<span title="This user is an member" class="label label-warning">Standaard</span>';
-                          }
-                        ?></td>
+                        <td>
+                          <select name="account_type">
+                            <?php if ($user->user_account_type == 7) { ?>
+                              <!-- <option data-display="select">Nothing</option> -->
+                              <option value="7" >Admin</option>
+                              <option value="2" >Moderator</option>
+                              <option value="1" >Standaard</option>
+                            <?php } elseif ($user->user_account_type == 2) { ?>
+                              <option value="2" >Moderator</option>
+                              <option value="7" >Admin</option>
+                              <option value="1" >Standaard</option>
+                            <?php } else { ?>
+              	               <option value="1" >Standaard</option>
+                               <option value="7" >Admin</option>
+                               <option value="2" >Moderator</option>
+                            <?php } ?>
+                          </select>
                         <td>
                             <input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
                             <input class="btn btn-primary" type="submit" />
@@ -98,18 +94,6 @@
                   <input class="form-control" type="text" name="invite_email" required />
                 </div>
               </div>
-              <!-- <div class="col-md-12">
-                <div class="form-group label-floating is-empty">
-                  <label class="control-label">Voornaam</label>
-                  <input class="form-control" type="text" name="first_name" required />
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group label-floating is-empty">
-                  <label class="control-label">Achternaam</label>
-                  <input class="form-control" type="text" name="last_name" required />
-                </div>
-              </div> -->
                 <!-- set CSRF token at the end of the form -->
                 <input type="hidden" name="csrf_token" value="<?= Csrf::makeToken(); ?>" />
                 <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
