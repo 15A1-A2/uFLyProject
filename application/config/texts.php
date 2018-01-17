@@ -73,4 +73,9 @@ return array(
     "FEEDBACK_NOTE_DELETION_FAILED" => "Note deletion failed.",
     "FEEDBACK_COOKIE_INVALID" => "Your remember-me-cookie is invalid.",
     "FEEDBACK_COOKIE_LOGIN_SUCCESSFUL" => "You were successfully logged in via the remember-me-cookie.",
+    "FEEDBACK_DOCUMENT_UPLOAD_FAILED" => "Something went wrong with the document upload.",
+    "FEEDBACK_DOCUMENT_UPLOAD_SUCCESSFUL" => "Document upload was successful.",
+    "FEEDBACK_DOCUMENT_UPLOAD_WRONG_TYPE" => "Only PDF, DOCX, DOC and TXT files are supported.",
+    "FEEDBACK_DOCUMENT_UPLOAD_TOO_BIG" => "Document source file is too big. 50 Megabyte is the maximum.",
+    "FEEDBACK_DOCUMENT_ALREADY_EXISTS" => "File already exists. File can't be uploaded.",
 );
