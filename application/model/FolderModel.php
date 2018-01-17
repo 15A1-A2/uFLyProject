@@ -16,8 +16,7 @@
                 $file = $_FILES["uploadFile"];
                 $fileName = $_FILES["uploadFile"]["tmp_name"];
             }
-            
-        
+                   
             // Check if file already exists
             if (file_exists($target_file)) {
                 echo "Sorry, file already exists.";
@@ -29,7 +28,7 @@
                 echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
-            echo($fileType);
+            
             // Allow certain file formats
             if (!in_array($fileType, $allowedFileTypes)) {
                 echo "Sorry, only the following file extensions are allowed: " . implode(";", $allowedFileTypes);
@@ -50,4 +49,3 @@
             }
         }
     }
-
