@@ -18,6 +18,8 @@ $date = $now->getTimestamp();
 
     <script src="<?php echo Config::get('URL'); ?>js/jquery.nice-select.js?_=<?=md5($date)?>" type="text/javascript"></script>
 
+	  <script src="<?php echo Config::get('URL'); ?>js/dropzone.js?_<?=md5($date)?>" type="text/javascript"></script>
+
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js?_=<?=md5($date)?>" type="text/javascript"></script>
 
   </body>

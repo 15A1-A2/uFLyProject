@@ -47,6 +47,7 @@
               <li class="<?php if (View::checkForActiveController($filename, "profile")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>profile/index"><i class="material-icons">person</i><p>Profile</p></a></li>
             <?php  } ?>
               <li class="<?php if (View::checkForActiveController($filename, "dashboard")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>dashboard/index"><i class="material-icons">dashboard</i><p>Dashboard</p></a></li>
+              <li class="<?php if (View::checkForActiveController($filename, "folder")) { echo ' active" '; } ?>"><a href="<?= Config::get('URL') ?>folder/index"><i class="material-icons">folder</i><p>Folder</p></a></li>
               <li style="position: absolute; bottom:0;"><a href="<?php echo Config::get('URL'); ?>login/logout"><i class="material-icons">highlight_off</i>Logout</a></li>
           </ul>
 
@@ -67,16 +68,17 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="material-icons">arrow_drop_down</i>
-								</a>
+  							</a>
 								<ul class="dropdown-menu" data-background-color="red">
                   <li><a class="" href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>">Verander account instellingen</a></li>
+                  
                   <?php if (Session::get("user_account_type") == 7) { ?>
                   <li><a class="" href="<?php echo Config::get('URL') ?>admin/index">Admin</a></li>
                   <?php  } ?>
-								</ul>
-							</li>
+  							</ul>
+              </li>
 							<li>
 								<a href="<?= Config::get('URL') . 'profile/showProfile/' . Session::get('user_id') ?>"><i class="material-icons">person</i></a>
 							</li>
