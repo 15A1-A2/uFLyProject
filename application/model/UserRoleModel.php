@@ -48,7 +48,7 @@ class UserRoleModel
 
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $query = $database->prepare("UPDATE users SET user_account_type = :new_type WHERE user_id = :user_id LIMIT 1");
+        $query = $database->prepare("UPDATE users SET user_role_id = :new_type WHERE user_id = :user_id LIMIT 1");
         $query->execute(array(
             ':new_type' => $type,
             ':user_id' => Session::get('user_id')
@@ -61,5 +61,32 @@ class UserRoleModel
         }
 
         return false;
+    }
+
+    // Parameters
+    // @Userid:
+    // Expect
+    // @Role
+    public static function whichRole ($userId)
+    {
+        if (!$userId){
+          $database = DatabaseFactory::getFactory()->getConnection();
+
+          $sql = "SELECT user_role_id, user_id FROM users
+          INNER JOIN user_roles ON users.user_role_id = user_roles.id
+          WHERE users.user_id = $userId;";
+          $query = $database->prepare($sql);
+          $query->execute(array(
+            'userId' => $userId
+
+          ));
+
+          if ($query->rowCount() == 0) {
+              return false;
+          }
+
+          return $query->fetch()->role_id;
+        }
+      return false;
     }
 }
